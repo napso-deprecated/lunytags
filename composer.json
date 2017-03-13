@@ -1,0 +1,31 @@
+{
+  "name": "napso/lunytags",
+  "description": "Package to work with tags in luny",
+  "authors": [
+    {
+      "name": "Napso",
+      "email": "adnapso@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Napso\\Lunytags\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=5.5.0",
+    "illuminate/database": ">=5.0",
+    "illuminate/support": ">=5.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.0",
+    "phpunit/phpunit": "~5.0"
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php",
+      "tests/stubs/TagStub.php",
+      "tests/stubs/PageStub.php"
+    ]
+  }
+}
