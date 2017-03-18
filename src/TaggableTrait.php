@@ -10,6 +10,7 @@ namespace Napso\Lunytags;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Collection;
 use Napso\Lunytags\Models\Tag;
 
@@ -34,10 +35,11 @@ trait TaggableTrait
         return $query;
     }
 
-    public function scopeWithAnyTag2($query, array $tags)
-    {
-
-    }
+    /**
+     * The tags relationship to this model.
+     *
+     * @return Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
 
     public function tags()
     {
@@ -51,12 +53,12 @@ trait TaggableTrait
 
     public function untag($tags = null)
     {
-        if ($tags == null) {
+        if ($tags === null) {
             $this->removeAllTags();
-            return;
+        } else {
+            $this->removeTags($this->getWorkableTags($tags));
         }
 
-        $this->removeTags($this->getWorkableTags($tags));
 
     }
 

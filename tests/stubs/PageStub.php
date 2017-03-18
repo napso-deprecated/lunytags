@@ -6,11 +6,12 @@ use Napso\Lunytags\TaggableTrait;
 
 class PageStub extends Model
 {
+    use TaggableTrait;
+
     protected $connection = 'testbench';
 
     public $table = 'pages';
 
-    use TaggableTrait;
 
 
 
